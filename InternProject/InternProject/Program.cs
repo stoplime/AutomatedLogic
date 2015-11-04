@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/***** Steffen Lim ******/
+using System;
 using System.Text.RegularExpressions;
 
 namespace InternProject
@@ -11,22 +8,76 @@ namespace InternProject
     {
         static void Main(string[] args)
         {
-            /*
-            Console.WriteLine("Enter a number A to see if it is a power of B");
-            Console.Write("A: ");
-            int A = int.Parse(Console.ReadLine());
-            Console.Write("B: ");
-            int B = int.Parse(Console.ReadLine());
-            Console.WriteLine("Result: "+PowerOf(A,B));
-            Console.ReadLine
-            */
+            Console.WriteLine("Welcome to Steffen's solution to Automated Logic's internship porblem");
 
-            while (true)
+            string flag = "";
+            while (flag.ToLower() != "x")
             {
-                Console.WriteLine("enter phrase to convert to piglatin: ");
-                Console.WriteLine(ToPigLatin(Console.ReadLine()));
+                Console.WriteLine("What would you like to do?");
+                Console.WriteLine("\t 1\t check the power factor of a number");
+                Console.WriteLine("\t 2\t translate english to pig Latin");
+                Console.WriteLine("\t x\t exit program");
+                flag = Console.ReadLine();
+                switch (flag.ToLower())
+                {
+                    case "1":
+                        Console.WriteLine("Please input two integers to see if one is a power of the other:");
+                        Console.WriteLine("Ex input: 8, power: 2 -> 8 is a power multiple of 2, so it's true");
+                        Console.Write("input: ");
+                        int input;
+                        if (!int.TryParse(Console.ReadLine(),out input))
+                        {
+                            Console.WriteLine("Sorry, unrecogized input. Please provide an integer.");
+                            break;
+                        }
+                        Console.Write("power: ");
+                        int power;
+                        if (!int.TryParse(Console.ReadLine(),out power))
+                        {
+                            Console.WriteLine("Sorry, unrecogized input. Please provide an integer.");
+                            break;
+                        }
+                        Console.WriteLine(input + ((PowerOf(input, power))?" is":" is not") + " a power multiple of "+ power);
+                        break;
+                    case "2":
+                        Console.WriteLine("Translate english into Piglatin!");
+                        Console.WriteLine("Please enter an english phrase you would like to translate: ");
+                        Console.WriteLine(ToPigLatin(Console.ReadLine()));
+                        break;
+                    case "x":
+                        Console.WriteLine("Thank you for using this system, have a good day!");
+                        Console.WriteLine("press enter to continue...");
+                        Console.ReadLine();
+                        return;
+                    default:
+                        Console.WriteLine("Sorry, unrecognized command. Please try again.");
+                        break;
+                }
+                Console.WriteLine("\nenter 'x' to exit or any key to continue...");
+                flag = Console.ReadLine();
             }
 
+        }
+
+        public static bool PowerOf(float input, float power)
+        {
+            if (power == 0 || input == 0)
+            {
+                return true;
+            }
+            float result = input / power;
+            if (result > power)
+            {
+                return PowerOf(result, power);
+            }
+            else if (result == power)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public static string ToPigLatin(string inputEnglish)
@@ -44,13 +95,11 @@ namespace InternProject
 
             for (int i = 0; i < words.Length; i++)
             {
-                string punctuation = "";
                 int n;
                 if (regexNonWord.IsMatch(words[i]) || int.TryParse(words[i], out n))
                 {
                     punctuations[i] = words[i];
                     words[i] = "";
-                    Console.WriteLine("punctuation: " + punctuation);
                 }
             }
             //convert words to pigLatin
@@ -77,23 +126,6 @@ namespace InternProject
             }
 
             return pigLatin;
-        }
-
-        public static bool PowerOf(float input, float power)
-        {
-            float result = input / power;
-            if (result > 2)
-            {
-                return PowerOf(result, power);
-            }
-            else if (result == 2)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
     }
 }

@@ -1,0 +1,6 @@
+C:\Users\stoplime\Documents\GitHub\AutomatedLogic\InternProject\InternProject\bin\Debug\InternProject.exe.config
+C:\Users\stoplime\Documents\GitHub\AutomatedLogic\InternProject\InternProject\bin\Debug\InternProject.exe
+C:\Users\stoplime\Documents\GitHub\AutomatedLogic\InternProject\InternProject\bin\Debug\InternProject.pdb
+C:\Users\stoplime\Documents\GitHub\AutomatedLogic\InternProject\InternProject\obj\Debug\InternProject.exe
+C:\Users\stoplime\Documents\GitHub\AutomatedLogic\InternProject\InternProject\obj\Debug\InternProject.pdb
+C:\Users\stoplime\Documents\GitHub\AutomatedLogic\InternProject\InternProject\obj\Debug\InternProject.csprojResolveAssemblyReference.cache

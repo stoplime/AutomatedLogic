@@ -1,0 +1,5 @@
+C:\Users\stoplime\Documents\GitHub\AutomatedLogic\InternProject\InternProject\bin\Release\InternProject.exe.config
+C:\Users\stoplime\Documents\GitHub\AutomatedLogic\InternProject\InternProject\bin\Release\InternProject.exe
+C:\Users\stoplime\Documents\GitHub\AutomatedLogic\InternProject\InternProject\bin\Release\InternProject.pdb
+C:\Users\stoplime\Documents\GitHub\AutomatedLogic\InternProject\InternProject\obj\Release\InternProject.exe
+C:\Users\stoplime\Documents\GitHub\AutomatedLogic\InternProject\InternProject\obj\Release\InternProject.pdb
