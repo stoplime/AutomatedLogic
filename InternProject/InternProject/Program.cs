@@ -61,7 +61,11 @@ namespace InternProject
 
         public static bool PowerOf(float input, float power)
         {
-            if (power == 0 || input == 0)
+            if (power == 0)
+            {
+                return false;
+            }
+            if (input == 0)
             {
                 return true;
             }
