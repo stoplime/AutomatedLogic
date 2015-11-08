@@ -34,10 +34,17 @@ namespace InternProject
                         int power;
                         if (!int.TryParse(Console.ReadLine(),out power))
                         {
-                            Console.WriteLine("Sorry, unrecogized input. Please provide an integer.");
+                            Console.WriteLine("Sorry, unrecogized input. Please provide a positive integer.");
                             break;
                         }
-                        Console.WriteLine(input + ((PowerOf(input, power))?" is":" is not") + " a power multiple of "+ power);
+                        if (power < 0)
+                        {
+                            power = Math.Abs(power);
+                            Console.WriteLine("Sorry, power cannot accept negative values. Did you mean " + power + "?");
+                        }
+                        bool test = PowerOf(input, power);
+                        Console.WriteLine(test+", "+input + ((test)?" is":" is not") + " a power multiple of "+ power);
+                        Console.WriteLine(Math.Log(input,power));
                         break;
                     case "2":
                         Console.WriteLine("Translate english into Piglatin!");
@@ -59,26 +66,22 @@ namespace InternProject
 
         }
 
-        public static bool PowerOf(float input, float power)
+        public static bool PowerOf(double input, double power)
         {
             if (power == 0)
             {
                 return false;
             }
-            if (input == 0)
+            if (power == 1 && input == 1)
             {
                 return true;
             }
-            float result = input / power;
-            if (result > power)
-            {
-                return PowerOf(result, power);
-            }
-            else if (result == power)
+            double result = Math.Log(input, power);
+            if (result % 1 == 0)
             {
                 return true;
             }
-            else
+            else 
             {
                 return false;
             }
@@ -121,7 +124,7 @@ namespace InternProject
                     }
                     else
                     {
-                        pigLatin += new string(otherLetters) + firstLetter.ToString() + "y";
+                        pigLatin += firstLetter.ToString() + new string(otherLetters) + "yay";
                     }
                 }else
                 {
